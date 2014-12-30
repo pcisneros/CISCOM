@@ -15,16 +15,15 @@ class Venta extends CI_Controller {
 		}
 		public function index()
 			{
-
-				$data['ventas'] = $this->venta_model->getTable();
-				$this->load->view('ciscom/frm_2',$data);
-
-
+				$this->load->view('ciscom/frm_2');
 			}
 
 		function irud($data = NULL, $cod_ven = NULL)
 
 		{
+				$data['ventas'] = $this->venta_model->getTable(); 
+				$this->load->view('ciscom/frm_2',$data);
+
 			if ($this->input->post('btnsave') == 'Save')
 				{
 
@@ -38,13 +37,13 @@ class Venta extends CI_Controller {
 
 					if ($select) {
 						$this->session->set_flashdata('msj','<b>¡Error!</b>, El codigo de esta venta ya se encuentra registrada, intente con un nuevo código');
-						redirect('http://localhost/CISCOM/');
+						// redirect('http://localhost/CISCOM/');
 					}
 
 					$insert = $this->venta_model->Save($data);
 					if ($insert) {
 						$this->session->set_flashdata('msj',' <b>¡Éxito!</b>, Los datos de la venta se guardaron satisfactoriamente');
-						redirect('http://localhost/CISCOM/');
+						// redirect('http://localhost/CISCOM/');
 					}
 				}
 
@@ -60,7 +59,7 @@ class Venta extends CI_Controller {
 
 					if ($update) {
 						$this->session->set_flashdata('msj',' <b>¡Éxito!</b>, Los datos de la venta se actualizaron satisfactoriamente');
-						redirect('http://localhost/CISCOM/');
+						// redirect('http://localhost/CISCOM/');
 					}
 				}
 
@@ -76,21 +75,17 @@ class Venta extends CI_Controller {
 
 					if ($consul == FALSE) {
 						$this->session->set_flashdata('msj','<b>¡Error!</b>, El codigo de esta venta no existe en la base de datos');
-						redirect('http://localhost/CISCOM/');
+						// redirect('http://localhost/CISCOM/');
 					}
 
 					$delete = $this->venta_model->Delete($data['cod_ven']);
 
 					if ($delete) {
 						$this->session->set_flashdata('msj','<b>¡Éxito!</b>, Los datos de la venta se eliminaron satisfactoriamente');
-						redirect('http://localhost/CISCOM/');
+						// redirect('http://localhost/CISCOM/');
 					}
 				}
-				{
-					$data['ventas'] = $this->venta_model->getTable(); 
-					$this->load->view('ciscom/frm_2',$data);
-				}
+				
 		}
-
 
 }

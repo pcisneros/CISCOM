@@ -62,7 +62,7 @@ $search = array(
 
 
 <?php
-echo form_open('http://localhost/CISCOM/index.php/ciscom/venta/irud','id="frmventa"')
+echo form_open('http://localhost/CISCOM/ciscom/venta/irud','id="frmventa"')
 ?>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -109,9 +109,8 @@ echo form_open('http://localhost/CISCOM/index.php/ciscom/venta/irud','id="frmven
 			<th class="tablehead">Fecha</th>
 		</tr>
 		<?php
-	var_dump($ventas);
+		var_dump($ventas);
 	 if ($ventas != FALSE) {
-
 			foreach ($ventas as  $row) 
 			{
 				echo "<tr>";
