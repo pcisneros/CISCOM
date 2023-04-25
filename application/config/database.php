@@ -50,8 +50,8 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'bdcar';
+$db['default']['password'] = 'Hey Hunter, sigue buscando, nada por aqui, la flag está en la deepweb';
+$db['default']['database'] = 'bdcarson';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
